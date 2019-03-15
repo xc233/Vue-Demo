@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <template v-if = 'msg'>
+        <p v-if = "xx == 'A'">asgfjashj</p>
+        <h1 v-else-if ="xx == 'B'" >afda</h1>
+        <span v-else>dfa</span>
+    </template>
+    {{xx}}
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:false,
+                xx:'A',
+            }
+        })
+    </script>
+</body>
+</html>
