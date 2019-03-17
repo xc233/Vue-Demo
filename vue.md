@@ -26,3 +26,7 @@ Model-View-ViewModel
 * v-on
 * v-model:双向数据绑定的特殊指令
 
+JS数组操作：
+* arr.splice()
+一个值代表保留数组的长度，溢出的删除
+两个值代表从第几个开始删，删除几个值

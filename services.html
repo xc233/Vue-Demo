@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 400px;
+            margin: 0 auto ;
+        }
+        h1{
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            padding: 0px;
+        }
+        li{
+            background-color: green;
+            height: 50px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            line-height: 50px;
+        }
+        span{
+            float:right;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>services</h1>
+        <ul>
+            <li v-for = 'obj in arr' :class = "{red : obj.active}" @click = "fn(obj)">
+                {{obj.name}}
+                <span>
+                    {{obj.price}}
+                </span>
+            </li>
+        </ul>
+        <hr>
+        total: <span>
+            {{total}}
+        </span>
+    </div>
+
+
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                arr:[
+                    {name:'aaa',price:123,active:false},
+                    {name:'bbb',price:234,active:false},
+                    {name:'ccc',price:564,active:false},
+                    {name:'ddd',price:785,active:false},
+                    {name:'eee',price:983,active:false},
+                    ],
+                total:0,
+            },
+            methods:{
+                fn(obj){
+                    obj.active = !obj.active;
+                    if(obj.active){
+                        this.total += obj.price;
+                    }else{
+                        this.total -= obj.price;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

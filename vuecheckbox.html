@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        是否需要额外付费设施<input type="checkbox"> 
+        <ul v-show = "seen">
+            <li>
+                沙发(100)
+                <input type="checkbox" name="" id="">
+            </li>
+            <li>
+                床(200)
+                <input type="checkbox" name="" id="">
+            </li>
+            <li>
+                wifi(20)
+                <input type="checkbox" name="" id="">
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                seen:false,
+
+            }
+        })
+    </script>
+</body>
+</html>
