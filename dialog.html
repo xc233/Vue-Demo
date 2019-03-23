@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dialog-box{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #cccccc;
+        }
+        .dialog-title{
+            height: 40px;
+            background-color: pink;
+            line-height: 40px;
+        }
+        .close{
+            float:right;
+        }
+        .content{
+            padding-top:40px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click = 'login'>登录</button>
+        <button @click = 'reg'>注册</button>
+        <my-dialog title="登录" v-show = 'isLoginShow' @fclose = 'close'>
+                用户名：<input type="text" name="" id="">  
+                <br>
+                密码是：<input type="password" name="" id="">
+                <br>
+                <input type="submit">
+        </my-dialog>
+        <my-dialog title="注册" v-show = 'isRegShow' @fclose = 'close'>
+                用户名：<input type="text" name="" id="">  
+                <br>
+                密码是：<input type="password" name="" id="">
+                <br>
+                邮箱是：<input type="text" name="" id=""> 
+                <br>
+                <input type="submit" >
+                <input type="reset" >
+        </my-dialog>
+        
+    </div>
+    
+    <script type="text/x-template" id="my-dialog">
+        <div id="dialog-box">
+                <div class="dialog-title">
+                    <span class="title-name">{{title}}</span>
+                    <span class="close" @click = '$emit("fclose")'>[X]</span>
+                </div>
+                <div class="content">
+                    <slot>
+                    用户名：<input type="text" name="" id="">  
+                    <br>
+                    密码是：<input type="password" name="" id="">
+                    </slot>
+                </div>
+            </div>
+    </script>
+
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue ({
+            el:'#app',
+            data:{
+                isLoginShow:false,
+                isRegShow:false,
+            },
+            methods:{
+                login(){
+                    this.isLoginShow = true;
+                    this.isRegShow = false;
+                },
+                reg(){
+                    this.isLoginShow = false;
+                    this.isRegShow = true;
+                },
+                close(){
+                    this.isLoginShow = false;
+                    this.isRegShow = false;
+                    // console.log(1111);
+                }
+            },
+            components:{
+                'my-dialog':{
+                    template:'#my-dialog',
+                    props:['title']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

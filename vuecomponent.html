@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <demo xx = "123" :yy = m1>
+            <p slot = '"p1"'>hehajdf</p>
+        </demo>
+        <demo xx = "456" :yy = m2></demo>
+        {{msg}}
+    </div>
+    <script type = "text/x-template" id = "temp">
+        <div> {{xx}} 
+            <h1>{{yy}}</h1> 
+            <slot name = "p1">
+                默认的dfj
+            </slot>
+        </div>
+    </script>
+
+
+    <script src="vue.js"></script>
+    <script>
+        //全局组件
+        // Vue.component('demo',{
+        //     template:"<div> div1 <h1>hhh</h1> </div>"
+        // });
+
+
+
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'xx',
+                m1:'hahaha',
+                m2:'hehehe'
+            },
+            //局部组件
+            components:{
+                demo:{
+                    template:"#temp",
+                    props:['xx','yy']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

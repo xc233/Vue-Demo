@@ -30,3 +30,8 @@ JS数组操作：
 * arr.splice()
 一个值代表保留数组的长度，溢出的删除
 两个值代表从第几个开始删，删除几个值
+
+VueComponent：
+* 因为Html不区分大小写，所以vue的js代码大写用[-小写字母]代替
+* template
+* props
